@@ -1,0 +1,142 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "ApigStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ApigStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ApigStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ApigStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/435d186d6bc61c5a2083d6dbd08d719728ec3b048d2640acaa87f92280fbd5c2.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ApigStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ApigStack.assets"
+      ],
+      "metadata": {
+        "/ApigStack/MyApiGateway/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGateway04A753E5"
+          }
+        ],
+        "/ApigStack/MyApiGateway/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayCloudWatchRoleD56CBB1D"
+          }
+        ],
+        "/ApigStack/MyApiGateway/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayAccount7AB4232E"
+          }
+        ],
+        "/ApigStack/MyApiGateway/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayDeployment44AAC0314fa40ad065c07c27f47ea46cf8e3ab52"
+          }
+        ],
+        "/ApigStack/MyApiGateway/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayDeploymentStageprodEBC77C1B"
+          }
+        ],
+        "/ApigStack/MyApiGateway/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayEndpoint84AE9DBF"
+          }
+        ],
+        "/ApigStack/MyApiGateway/Default/products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayproducts86FA1821"
+          }
+        ],
+        "/ApigStack/MyApiGateway/Default/products/GET/ApiPermission.ApigStackMyApiGatewayD2FD49DD.GET..products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayproductsGETApiPermissionApigStackMyApiGatewayD2FD49DDGETproducts45E547C8"
+          }
+        ],
+        "/ApigStack/MyApiGateway/Default/products/GET/ApiPermission.Test.ApigStackMyApiGatewayD2FD49DD.GET..products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayproductsGETApiPermissionTestApigStackMyApiGatewayD2FD49DDGETproducts6F42AAFA"
+          }
+        ],
+        "/ApigStack/MyApiGateway/Default/products/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiGatewayproductsGETBE6A5F81"
+          }
+        ],
+        "/ApigStack/apilabda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apilabdaServiceRole095F99A2"
+          }
+        ],
+        "/ApigStack/apilabda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apilabda677A7B92"
+          }
+        ],
+        "/ApigStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ApigStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/ApigStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ApigStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ApigStack"
+    }
+  }
+}
